@@ -14,6 +14,3 @@ Open the Vite URL shown in terminal. The local Vite server proxies `/api` to `ht
 
 ## Free deployment guide
 See [`DEPLOY_FREE_VI.md`](./DEPLOY_FREE_VI.md) for Cloudflare Pages frontend + Render backend setup.
-
-## Scope and limitations
-This backend only processes direct HTTP(S) media-file URLs. It does not extract media from YouTube watch pages or bypass access controls. Use content you own or are permitted to download/convert. Free hosting may sleep, time out, or run out of temporary storage for large media; it is suitable for personal testing, not guaranteed always-on service.
