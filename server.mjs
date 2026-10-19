@@ -11,15 +11,12 @@ import { pipeline } from 'node:stream/promises';
 import { createWriteStream } from 'node:fs';
 
 const app = express();
-app.use(cors({
-  origin: "https://localconvert-4w5.pages.dev",
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
 
-app.use(express.json({ limit: '20kb' }));
-const PORT = Number(process.env.PORT || 8787);
-const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || 'http://127.0.0.1:5173,http://localhost:5173').split(',').map(x => x.trim()).filter(Boolean);
+const ALLOWED_ORIGINS = (
+  process.env.ALLOWED_ORIGINS ||
+  'http://127.0.0.1:5173,http://localhost:5173,https://localconvert-4w5.pages.dev'
+).split(',').map(x => x.trim()).filter(Boolean);
+
 app.use((req, res, next) => {
   const origin = req.headers.origin;
   if (origin && (ALLOWED_ORIGINS.includes(origin) || ALLOWED_ORIGINS.includes('*'))) {
