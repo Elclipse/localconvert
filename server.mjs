@@ -12,6 +12,8 @@ import { createWriteStream } from 'node:fs';
 
 const app = express();
 
+app.use(express.json({ limit: '20kb' }));
+
 const ALLOWED_ORIGINS = (
   process.env.ALLOWED_ORIGINS ||
   'http://127.0.0.1:5173,http://localhost:5173,https://localconvert-4w5.pages.dev'
